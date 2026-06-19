@@ -1,6 +1,16 @@
 package za.ac.cput.domain;
 import java.time.LocalDate;
 import java.util.Objects;
+
+
+
+/*
+ * Class Name: Customer
+ * Description: Customer CarRentSystem class
+ * Author: Qhubekani Shandu (231316267)
+ * Date: 20 June 2026
+ */
+
 public class Customer {
 
         private final String customerId;
