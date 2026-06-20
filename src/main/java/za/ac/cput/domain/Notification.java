@@ -3,6 +3,15 @@ package za.ac.cput.domain;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
+
+/*  Class Name: Notification
+
+     Description: Notification CarRentSystem class
+
+     Author: Lucky July Twala (231242840)
+
+     Date: 20 May 2026 */
+
 public class Notification {
     private final String notificationId;
     private final String customerId;
