@@ -1,5 +1,12 @@
 package za.ac.cput.domain;
 
+/*
+ * Class Name: Employee
+ * Description: Employee CarRentSystem class
+ * Author: Avuyile Twesha (240763394)
+ * Date: 20 June 2026
+ */
+
 public class Employee {
     private String employeeId;
     private String firstName;

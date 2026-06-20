@@ -1,5 +1,14 @@
 package za.ac.cput.domain;
 
+
+/*
+ * Class Name: Manager
+ * Description: Manager CarRentSystem class
+ * Author: Avuyile Twesha (240763394)
+ * Date: 20 June 2026
+ */
+
+
 public class Manager extends Employee{
     private String managerId;
     private String employeeId;
