@@ -3,6 +3,14 @@ package za.ac.cput.domain;
 import java.time.LocalDate;
 import java.util.Objects;
 
+/*  Class Name: Payment
+
+     Description: Payment CarRentSystem class
+
+     Author: Lucky July Twala (231242840)
+
+     Date: 20 May 2026 */
+
 public class Payment {
     private final String paymentId;
     private final String bookingId;
