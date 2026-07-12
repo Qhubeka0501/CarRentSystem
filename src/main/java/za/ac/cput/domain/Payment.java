@@ -28,7 +28,7 @@ public class Payment {
         this.paymentStatus = builder.paymentStatus;
     }
 
-    public String getPaymentId() {
+    public Payment getPaymentId() {
         return paymentId;
     }
 
@@ -78,6 +78,14 @@ public class Payment {
                 ", method='" + paymentMethod + '\'' +
                 ", status='" + paymentStatus + '\'' +
                 '}';
+    }
+
+    public String getNotificationType() {
+        return null;
+    }
+
+    public Payment getNotificationId() {
+        return null;
     }
 
     public static class Builder {
