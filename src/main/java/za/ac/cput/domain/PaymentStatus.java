@@ -6,9 +6,9 @@ package za.ac.cput.domain;
 
      Author: Lucky July Twala (231242840)
 
-     Date: 20 May 2026 */
+     Date: 20 June 2026 */
 public enum PaymentStatus {
     PENDING,
     COMPLETED,
-    FAILED
+    PAID, CANCELLED, FAILED
 }

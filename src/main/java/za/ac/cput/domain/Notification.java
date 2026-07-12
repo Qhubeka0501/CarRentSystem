@@ -10,7 +10,7 @@ import java.util.Objects;
 
      Author: Lucky July Twala (231242840)
 
-     Date: 20 May 2026 */
+     Date: 20 June 2026 */
 
 public class Notification {
     private final String notificationId;
@@ -76,6 +76,10 @@ public class Notification {
                 ", sentAt=" + sentAt +
                 ", type='" + notificationType + '\'' +
                 '}';
+    }
+
+    public Payment getPaymentId() {
+        return null;
     }
 
     public static class Builder {

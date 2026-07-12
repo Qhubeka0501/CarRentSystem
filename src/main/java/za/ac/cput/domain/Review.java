@@ -5,7 +5,6 @@ package za.ac.cput.domain;
  * Author: Alphonsine Ningabiye(230426581)
  * Date: 21 June 2026
  */
-
 public class Review {
 
     private String reviewId;

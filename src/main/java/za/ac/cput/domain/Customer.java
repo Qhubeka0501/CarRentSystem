@@ -22,7 +22,7 @@ public class Customer {
         private final String address;
         private final NextOfKin nextOfKin;
 
-        private Customer(Builder builder) {
+        public Customer(Builder builder) {
             this.customerId = builder.customerId;
             this.fullName = builder.fullName;
             this.email = builder.email;
