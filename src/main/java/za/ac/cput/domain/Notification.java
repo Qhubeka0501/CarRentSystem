@@ -78,6 +78,10 @@ public class Notification {
                 '}';
     }
 
+    public Payment getPaymentId() {
+        return null;
+    }
+
     public static class Builder {
         private String notificationId;
         private String customerId;
