@@ -1,5 +1,19 @@
 package za.ac.cput.service;
 
+
+import za.ac.cput.domain.Payment;
+
+public interface IService<T, ID> {
+
+    T create(T t);
+
+    T read(ID id);
+
+    T update(T t);
+
+    boolean delete(ID id);
+}
+
 import za.ac.cput.domain.Payment;
 /*  Class Name: IService
 
@@ -17,3 +31,4 @@ public interface IService <P,P1> {
 
     boolean delete(Payment paymentId);
 }
+
