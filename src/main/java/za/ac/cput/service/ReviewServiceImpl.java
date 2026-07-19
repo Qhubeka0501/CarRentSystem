@@ -1,8 +1,10 @@
 package za.ac.cput.service;
 
+import za.ac.cput.domain.Payment;
 import za.ac.cput.domain.Review;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class ReviewServiceImpl implements ReviewService {
@@ -33,7 +35,7 @@ public class ReviewServiceImpl implements ReviewService {
     }
 
     @Override
-    public Review update(Review review) {
+    public Payment update(@org.jetbrains.annotations.UnknownNullability Review review) {
         if (reviewDB.containsKey(review.getReviewId())) {
             reviewDB.put(review.getReviewId(), review);
             return review;
@@ -44,5 +46,10 @@ public class ReviewServiceImpl implements ReviewService {
     @Override
     public boolean delete(String reviewId) {
         return reviewDB.remove(reviewId) != null;
+    }
+
+    @Override
+    public List<Review> findAll() {
+        return List.of();
     }
 }

@@ -1,9 +1,9 @@
 package za.ac.cput.service;
 
-import za.ac.cput.domain.Notification;
 import za.ac.cput.domain.Payment;
+import za.ac.cput.domain.Review;
 import za.ac.cput.repository.NotificationRepository;
-import za.ac.cput.service.NotificationService;
+
 /*  Class Name: NotificationServiceImpl
 
      Description: NotificationService CarRentSystem class
@@ -42,7 +42,7 @@ public class NotificationServiceImpl implements NotificationService {
     }
 
     @Override
-    public Payment update(Payment payment) {
+    public Payment update(Review payment) {
         return null;
     }
 

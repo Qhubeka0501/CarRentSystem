@@ -45,6 +45,10 @@ public class Review {
                 '}';
     }
 
+    public String getRecordId() {
+        return "";
+    }
+
     public static class Builder {
 
         private String reviewId;

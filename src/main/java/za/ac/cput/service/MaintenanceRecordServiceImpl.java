@@ -3,6 +3,7 @@ package za.ac.cput.service;
 
 
 import za.ac.cput.domain.MaintenanceRecord;
+import za.ac.cput.domain.Review;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -35,9 +36,9 @@ public class MaintenanceRecordServiceImpl implements MaintenanceRecordService {
     }
 
     @Override
-    public MaintenanceRecord update(MaintenanceRecord maintenanceRecord) {
+    public Review update(@org.jetbrains.annotations.UnknownNullability Review maintenanceRecord) {
         if (maintenanceDB.containsKey(maintenanceRecord.getRecordId())) {
-            maintenanceDB.put(maintenanceRecord.getRecordId(), maintenanceRecord);
+            maintenanceDB.put(maintenanceRecord.getRecordId(),maintenanceRecord);
             return maintenanceRecord;
         }
         return null;
