@@ -1,8 +1,9 @@
 package za.ac.cput.service;
 
 import za.ac.cput.domain.Payment;
+import za.ac.cput.domain.Review;
 import za.ac.cput.repository.PaymentRepository;
-import za.ac.cput.service.PaymentService;
+
 /*  Class Name: PaymentServiceImpl
 
      Description: PaymentService CarRentSystem class
@@ -40,7 +41,7 @@ public class PaymentServiceImpl implements PaymentService {
     }
 
     @Override
-    public Payment update(Payment payment) {
+    public Payment update(Review payment) {
         return null;
     }
 

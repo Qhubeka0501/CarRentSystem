@@ -18,7 +18,7 @@ class ReviewServiceImplTest {
         review = ReviewFactory.createReview(
                 "C001",
                 "Excellent service",
-                8
+                "Excellent service", 8
         );
     }
 
