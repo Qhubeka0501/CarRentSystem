@@ -88,6 +88,9 @@ public class Payment {
         return null;
     }
 
+    public String getReviewId() {
+    }
+
     public static class Builder {
         private String paymentId;
         private String bookingId;

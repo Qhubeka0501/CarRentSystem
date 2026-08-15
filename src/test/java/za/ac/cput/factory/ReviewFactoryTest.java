@@ -25,7 +25,7 @@ class ReviewFactoryTest {
         Review review = ReviewFactory.createReview(
                 "C01",
                 "Excellent service",
-                4
+                "Excellent service", 4
         );
 
         assertNotNull(review);

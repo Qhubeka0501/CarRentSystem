@@ -34,4 +34,8 @@ public class MaintenanceRecordFactory {
     private static String generateRecordId() {
         return "MR" + System.currentTimeMillis();
     }
+
+    public static MaintenanceRecord createMaintenanceRecord(String m001, String oilChange, String date, double v) {
+        return null;
+    }
 }

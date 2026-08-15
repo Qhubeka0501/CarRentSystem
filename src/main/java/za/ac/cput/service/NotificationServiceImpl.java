@@ -1,53 +1,46 @@
 package za.ac.cput.service;
 
+import org.springframework.stereotype.Service;
 import za.ac.cput.domain.Notification;
-import za.ac.cput.domain.Payment;
 import za.ac.cput.repository.NotificationRepository;
-import za.ac.cput.service.NotificationService;
-/*  Class Name: NotificationServiceImpl
 
-     Description: NotificationService CarRentSystem class
+/*
+ * Class Name: NotificationServiceImpl
+ * Description: NotificationService CarRentSystem class
+ * Author: Lucky July Twala (231242840)
+ * Date: 12 July 2026
+ */
 
-     Author: Lucky July Twala (231242840)
-
-     Date: 12 July 2026 */
+@Service
 public class NotificationServiceImpl implements NotificationService {
-
-    private static NotificationServiceImpl service;
 
     private final NotificationRepository repository;
 
-    private NotificationServiceImpl() {
-        repository = NotificationRepository.getRepository();
+    public NotificationServiceImpl(NotificationRepository repository) {
+        this.repository = repository;
     }
 
-    public static NotificationServiceImpl getService() {
+    @Override
+    public Notification create(Notification notification) {
+        return repository.save(notification);
+    }
 
-        if (service == null) {
-            service = new NotificationServiceImpl();
+    @Override
+    public Notification read(String notificationId) {
+        return repository.findById(notificationId).orElse(null);
+    }
+
+    @Override
+    public Notification update(Notification notification) {
+        return repository.save(notification);
+    }
+
+    @Override
+    public boolean delete(String notificationId) {
+        if (repository.existsById(notificationId)) {
+            repository.deleteById(notificationId);
+            return true;
         }
-
-        return service;
-    }
-
-
-    @Override
-    public Payment create(Payment payment) {
-        return null;
-    }
-
-    @Override
-    public Payment read(Payment paymentId) {
-        return null;
-    }
-
-    @Override
-    public Payment update(Payment payment) {
-        return null;
-    }
-
-    @Override
-    public boolean delete(Payment paymentId) {
         return false;
     }
 }

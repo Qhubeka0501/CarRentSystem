@@ -12,7 +12,7 @@ public class ReviewFactory {
     public static Review createReview(
             String customerId,
             String comments,
-            int rating) {
+            String excellentService, int rating) {
 
         String reviewId = generateReviewId();
 

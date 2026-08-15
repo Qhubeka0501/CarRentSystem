@@ -1,19 +1,12 @@
-package za.ac.cput.service;
+﻿package za.ac.cput.service;
 
-import za.ac.cput.domain.Payment;
-/*  Class Name: IService
+public interface IService<T, ID> {
 
-     Description: IService CarRentSystem class
+    T create(T t);
 
-     Author: Lucky July Twala (231242840)
+    T read(ID id);
 
-     Date: 12 July 2026 */
-public interface IService <P,P1> {
-    Payment create(Payment payment);
+    T update(T t);
 
-    Payment read(Payment paymentId);
-
-    Payment update(Payment payment);
-
-    boolean delete(Payment paymentId);
+    boolean delete(ID id);
 }

@@ -1,16 +1,17 @@
-package za.ac.cput.repository;
+ package za.ac.cput.repository;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 import za.ac.cput.domain.Notification;
-/*  Class Name: NotificationRepository
 
-     Description: NotificationRepository CarRentSystem class
+/*
+ * Class Name: NotificationRepository
+ * Description: NotificationRepository CarRentSystem class
+ * Author: Lucky July Twala (231242840)
+ * Date: 12 July 2026
+ */
 
-     Author: Lucky July Twala (231242840)
+@Repository
+public interface NotificationRepository extends JpaRepository<Notification, String> {
 
-     Date: 12 July 2026 */
-public interface NotificationRepository extends IRepository<Notification, String> {
-
-    static NotificationRepository getRepository() {
-        return null;
-    }
 }

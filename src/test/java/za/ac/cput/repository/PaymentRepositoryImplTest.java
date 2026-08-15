@@ -4,11 +4,9 @@ package za.ac.cput.repository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
-import org.junit.jupiter.api.Test;
 import za.ac.cput.domain.Notification;
 import za.ac.cput.domain.Payment;
 import za.ac.cput.factory.PaymentFactory;
-import za.ac.cput.repository.PaymentRepositoryImpl;
 import org.junit.jupiter.api.TestMethodOrder;
 
 import java.time.LocalDate;
@@ -19,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class PaymentRepositoryImplTest {
 
     private static final PaymentRepository repository =
-            PaymentRepositoryImpl.getRepository();
+            PaymentRepository.getRepository();
 
     private static final Payment payment =
             PaymentFactory.createPayment(
