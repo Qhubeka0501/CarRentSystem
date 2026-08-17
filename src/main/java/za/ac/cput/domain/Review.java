@@ -5,8 +5,6 @@ package za.ac.cput.domain;
  * Author: Alphonsine Ningabiye(230426581)
  * Date: 21 June 2026
  */
-
-
 public class Review {
 
     private String reviewId;
@@ -45,6 +43,10 @@ public class Review {
                 ", comments='" + comments + '\'' +
                 ", rating=" + rating +
                 '}';
+    }
+
+    public String getRecordId() {
+        return "";
     }
 
     public static class Builder {

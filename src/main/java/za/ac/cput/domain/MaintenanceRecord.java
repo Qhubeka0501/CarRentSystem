@@ -65,6 +65,10 @@ public class MaintenanceRecord {
                 '}';
     }
 
+    public String getMaintenanceId() {
+        return "";
+    }
+
     public static class Builder {
 
         private String recordId;
@@ -112,6 +116,10 @@ public class MaintenanceRecord {
 
         public MaintenanceRecord build() {
             return new MaintenanceRecord(this);
+        }
+
+        public Payment.Builder setType(String majorService) {
+            return null;
         }
     }
 }
