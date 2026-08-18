@@ -7,16 +7,16 @@ package za.ac.cput.domain;
  * Date: 20 June 2026
  */
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 import org.hibernate.engine.spi.CachedNaturalIdValueSource;
 
 import java.util.Objects;
 
 @Entity
     public class Vehicle {
-        private final String vehicleId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private final String vehicleId;
         private final String licensePlate;
         private final String make;
         private final String model;

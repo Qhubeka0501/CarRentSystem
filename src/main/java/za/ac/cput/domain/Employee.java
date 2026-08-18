@@ -5,7 +5,7 @@ package za.ac.cput.domain;
  * Description: Employee CarRentSystem class
  * Author: Avuyile Twesha (240763394)
  * Date: 20 June 2026
- */
+ *Qhub
 
 public class Employee {
     private String employeeId;
@@ -37,7 +37,7 @@ public class Employee {
     public String getEmail() {
         return email;
     }
-    public String getPhoneNumber() {
+    pu blic String getPhoneNumber() {
         return phoneNumber;
     }
     public double getSalary() {
