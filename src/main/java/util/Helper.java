@@ -32,4 +32,34 @@ public class Helper {
 
         return streetNo.matches("\\d+");
     }
+
+    public static boolean isPaymentMethodValid(String paymentMethod) {
+        if (isStringNull(paymentMethod)) {
+            return false;
+        }
+        return paymentMethod.equalsIgnoreCase("Credit Card") ||
+                paymentMethod.equalsIgnoreCase("Debit Card") ||
+                paymentMethod.equalsIgnoreCase("Cash") ||
+                paymentMethod.equalsIgnoreCase("Mobile Payment");
+    }
+
+    public static boolean isPaymentStatusValid(String paymentStatus) {
+        if (isStringNull(paymentStatus)) {
+            return false;
+        }
+        return paymentStatus.equalsIgnoreCase("Pending") ||
+                paymentStatus.equalsIgnoreCase("Completed") ||
+                paymentStatus.equalsIgnoreCase("Failed") ||
+                paymentStatus.equalsIgnoreCase("Refunded");
+    }
+
+    public static boolean isNotificationTypeValid(String notificationType) {
+        if (isStringNull(notificationType)) {
+            return false;
+        }
+        return notificationType.equalsIgnoreCase("Email") ||
+                notificationType.equalsIgnoreCase("SMS") ||
+                notificationType.equalsIgnoreCase("Push Notification");
+    }
+
 }

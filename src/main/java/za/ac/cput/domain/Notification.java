@@ -1,5 +1,8 @@
 package za.ac.cput.domain;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
 import java.time.LocalDateTime;
 import java.util.Objects;
 
@@ -11,8 +14,10 @@ import java.util.Objects;
      Author: Lucky July Twala (231242840)
 
      Date: 20 June 2026 */
-
+@Entity
 public class Notification {
+
+    @Id
     private final String notificationId;
     private final String customerId;
     private final String bookingId;
