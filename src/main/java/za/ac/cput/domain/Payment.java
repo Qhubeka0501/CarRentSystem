@@ -1,5 +1,7 @@
 package za.ac.cput.domain;
 
+import jakarta.persistence.*;
+
 import java.time.LocalDate;
 import java.util.Objects;
 
@@ -10,8 +12,11 @@ import java.util.Objects;
      Author: Lucky July Twala (231242840)
 
      Date: 20 May 2026 */
-
+@Entity
 public class Payment {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
     private final String paymentId;
     private final String bookingId;
     private final double amount;
