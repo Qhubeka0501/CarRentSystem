@@ -11,7 +11,7 @@ import java.util.List;
 @RequestMapping("/review")
 public class ReviewController {
 
-    private ReviewService reviewService;
+    private final ReviewService reviewService;
 
     @Autowired
     public ReviewController(ReviewService reviewService) {

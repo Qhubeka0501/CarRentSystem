@@ -1,17 +1,17 @@
 package za.ac.cput.factory;
 
-/* Class Name: Review.java
- *Description: Review CarRentSystem Class
- * Author: Alphonsine Ningabiye(230426581)
- * Date: 28 June 2026
- */
-
 import org.junit.jupiter.api.Test;
 import za.ac.cput.domain.MaintenanceRecord;
 
 import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.*;
+
+/*
+ * Class Name: MaintenanceRecordFactoryTest
+ * Description: Test for MaintenanceRecordFactory
+ * Author: Alphonsine Ningabiye (230426581)
+ */
 
 class MaintenanceRecordFactoryTest {
 
@@ -20,16 +20,29 @@ class MaintenanceRecordFactoryTest {
 
         MaintenanceRecord maintenanceRecord =
                 MaintenanceRecordFactory.createMaintenanceRecord(
-                        "V01",
-                        LocalDate.now(),
-                        "Oil Change",
-                        2000.00,
-                        "John Technician"
+                        "V001",
+                        LocalDate.of(2026, 8, 23),
+                        "Oil change",
+                        850.00,
+                        "John Smith"
                 );
 
         assertNotNull(maintenanceRecord);
         assertNotNull(maintenanceRecord.getRecordId());
 
-        System.out.println(maintenanceRecord);
+        assertEquals("V001", maintenanceRecord.getVehicleId());
+        assertEquals(
+                LocalDate.of(2026, 8, 23),
+                maintenanceRecord.getDate()
+        );
+        assertEquals(
+                "Oil change",
+                maintenanceRecord.getDescription()
+        );
+        assertEquals(850.00, maintenanceRecord.getCost());
+        assertEquals(
+                "John Smith",
+                maintenanceRecord.getTechnicianName()
+        );
     }
 }

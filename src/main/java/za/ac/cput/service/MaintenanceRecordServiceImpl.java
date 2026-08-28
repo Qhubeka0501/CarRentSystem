@@ -11,7 +11,8 @@ public class MaintenanceRecordServiceImpl implements MaintenanceRecordService {
 
     private final MaintenanceRecordRepository repository;
 
-    public MaintenanceRecordServiceImpl(MaintenanceRecordRepository repository) {
+    public MaintenanceRecordServiceImpl(
+            MaintenanceRecordRepository repository) {
         this.repository = repository;
     }
 

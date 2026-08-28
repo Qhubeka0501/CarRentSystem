@@ -1,18 +1,27 @@
 package za.ac.cput.domain;
 
-/* Class Name: Review.java
- *Description: Review CarRentSystem Class
- * Author: Alphonsine Ningabiye(230426581)
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+/*
+ * Class Name: Review.java
+ * Description: Review CarRentSystem Class
+ * Author: Alphonsine Ningabiye (230426581)
  * Date: 21 June 2026
  */
+
+@Entity
 public class Review {
 
+    @Id
     private String reviewId;
+
     private String customerId;
     private String comments;
     private int rating;
 
-    private Review() {
+
+    protected Review() {
     }
 
     private Review(Builder builder) {
@@ -25,12 +34,15 @@ public class Review {
     public String getReviewId() {
         return reviewId;
     }
+
     public String getCustomerId() {
         return customerId;
     }
+
     public String getComments() {
         return comments;
     }
+
     public int getRating() {
         return rating;
     }
@@ -43,10 +55,6 @@ public class Review {
                 ", comments='" + comments + '\'' +
                 ", rating=" + rating +
                 '}';
-    }
-
-    public String getRecordId() {
-        return "";
     }
 
     public static class Builder {
@@ -85,6 +93,7 @@ public class Review {
         }
 
         public Review build() {
+
             return new Review(this);
         }
     }

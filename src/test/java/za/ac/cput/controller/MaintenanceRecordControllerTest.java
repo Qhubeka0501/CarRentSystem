@@ -1,88 +1,129 @@
 package za.ac.cput.controller;
 
-import org.junit.jupiter.api.MethodOrderer;
-import org.junit.jupiter.api.Order;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.http.MediaType;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import za.ac.cput.domain.MaintenanceRecord;
-import za.ac.cput.domain.Payment;
-import za.ac.cput.factory.MaintenanceRecordFactory;
+import za.ac.cput.service.MaintenanceRecordService;
 
-import static org.junit.jupiter.api.Assertions.*;
+import java.time.LocalDate;
+import java.util.List;
 
-@SpringBootTest
-@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+
+/*
+ * Class Name: MaintenanceRecordControllerTest
+ * Description: Controller test for MaintenanceRecord
+ * Author: Alphonsine Ningabiye (230426581)
+ * Date: 23 August 2026
+ */
+
+@WebMvcTest(MaintenanceRecordController.class)
 class MaintenanceRecordControllerTest {
 
     @Autowired
-    private MaintenanceRecordController controller;
+    private MockMvc mockMvc;
 
-    private static final MaintenanceRecord maintenance =
-            MaintenanceRecordFactory.createMaintenanceRecord(
-                    "M001",
-                    "Oil Change",
-                    "2026-07-18",
-                    1200.00
-            );
+    @Autowired
+    private ObjectMapper objectMapper;
 
-    @Test
-    @Order(1)
-    void create() {
+    @MockitoBean
+    private MaintenanceRecordService maintenanceRecordService;
 
-        MaintenanceRecord created = controller.create(maintenance);
+    private MaintenanceRecord createRecord() {
 
-        assertNotNull(created);
-
-        System.out.println(created);
+        return new MaintenanceRecord.Builder()
+                .setRecordId("MR001")
+                .setVehicleId("V001")
+                .setDate(LocalDate.of(2026, 8, 23))
+                .setDescription("Oil change")
+                .setCost(850.00)
+                .setTechnicianName("John")
+                .build();
     }
 
     @Test
-    @Order(2)
-    void read() {
+    void create() throws Exception {
 
-        MaintenanceRecord read =
-                controller.read(maintenance.getMaintenanceId());
+        MaintenanceRecord record = createRecord();
 
-        assertNotNull(read);
+        when(maintenanceRecordService.create(any(MaintenanceRecord.class)))
+                .thenReturn(record);
 
-        System.out.println(read);
+        mockMvc.perform(post("/maintenanceRecord/create")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(record)))
+                .andExpect(status().isOk());
+
+        verify(maintenanceRecordService)
+                .create(any(MaintenanceRecord.class));
     }
 
     @Test
-    @Order(3)
-    void update() {
+    void read() throws Exception {
 
-        Payment updated =
-                new MaintenanceRecord.Builder()
-                        .copy(maintenance)
-                        .setType("Major Service")
-                        .build();
+        MaintenanceRecord record = createRecord();
 
-        MaintenanceRecord result = controller.update(updated);
+        when(maintenanceRecordService.read("MR001"))
+                .thenReturn(record);
 
-        assertNotNull(result);
+        mockMvc.perform(get("/maintenanceRecord/read/MR001"))
+                .andExpect(status().isOk());
 
-        System.out.println(result);
+        verify(maintenanceRecordService)
+                .read("MR001");
     }
 
     @Test
-    @Order(4)
-    void getAll() {
+    void update() throws Exception {
 
-        System.out.println(controller.getAll());
+        MaintenanceRecord record = createRecord();
+
+        when(maintenanceRecordService.update(any(MaintenanceRecord.class)))
+                .thenReturn(record);
+
+        mockMvc.perform(put("/maintenanceRecord/update")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(record)))
+                .andExpect(status().isOk());
+
+        verify(maintenanceRecordService)
+                .update(any(MaintenanceRecord.class));
     }
 
     @Test
-    @Order(5)
-    void delete() {
+    void delete() throws Exception {
 
-        controller.delete(maintenance.getMaintenanceId());
+        when(maintenanceRecordService.delete("MR001"))
+                .thenReturn(true);
 
-        MaintenanceRecord deleted =
-                controller.read(maintenance.getMaintenanceId());
+        mockMvc.perform(MockMvcRequestBuilders.delete("/maintenanceRecord/delete/MR001"))
+                .andExpect(status().isOk());
 
-        assertNull(deleted);
+        verify(maintenanceRecordService)
+                .delete("MR001");
+    }
+
+    @Test
+    void getAll() throws Exception {
+
+        MaintenanceRecord record = createRecord();
+
+        when(maintenanceRecordService.findAll())
+                .thenReturn(List.of(record));
+
+        mockMvc.perform(get("/maintenanceRecord/getAll"))
+                .andExpect(status().isOk());
+
+        verify(maintenanceRecordService)
+                .findAll();
     }
 }

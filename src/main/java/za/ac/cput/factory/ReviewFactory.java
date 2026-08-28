@@ -1,18 +1,20 @@
 package za.ac.cput.factory;
 
-/* Class Name: Review.java
- *Description: Review CarRentSystem Class
- * Author: Alphonsine Ningabiye(230426581)
+import za.ac.cput.domain.Review;
+
+/*
+ * Class Name: ReviewFactory
+ * Description: Factory for creating Review objects
+ * Author: Alphonsine Ningabiye (230426581)
  * Date: 28 June 2026
  */
-import za.ac.cput.domain.Review;
 
 public class ReviewFactory {
 
     public static Review createReview(
             String customerId,
             String comments,
-            String excellentService, int rating) {
+            int rating) {
 
         String reviewId = generateReviewId();
 
@@ -25,6 +27,6 @@ public class ReviewFactory {
     }
 
     private static String generateReviewId() {
-        return "REV" + System.currentTimeMillis();
+        return "REVIEW" + System.currentTimeMillis();
     }
 }

@@ -2,6 +2,7 @@ package za.ac.cput.service;
 
 import org.springframework.stereotype.Service;
 import za.ac.cput.domain.Customer;
+import za.ac.cput.domain.MaintenanceRecord;
 import za.ac.cput.repository.CustomerRepository;
 
 import java.util.List;
@@ -32,7 +33,7 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public Customer update(Customer customer) {
+    public Customer update(MaintenanceRecord customer) {
         return repository.save(customer);
     }
 

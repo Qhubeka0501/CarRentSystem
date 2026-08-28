@@ -1,24 +1,31 @@
 package za.ac.cput.domain;
 
-/* class Name: MaintenanceRecord.java
- *Description:MaintenanceRecord CarRentSystem class
- * Author: Alphonsine Ningabiye(230426581)
- * Date: 21 June 2026
-
- */
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
 import java.time.LocalDate;
 
+/*
+ * Class Name: MaintenanceRecord.java
+ * Description: MaintenanceRecord CarRentSystem class
+ * Author: Alphonsine Ningabiye (230426581)
+ * Date: 21 June 2026
+ */
+
+@Entity
 public class MaintenanceRecord {
 
+    @Id
     private String recordId;
+
     private String vehicleId;
     private LocalDate date;
     private String description;
     private double cost;
     private String technicianName;
 
-    private MaintenanceRecord() {
+
+    protected MaintenanceRecord() {
     }
 
     private MaintenanceRecord(Builder builder) {
@@ -33,6 +40,7 @@ public class MaintenanceRecord {
     public String getRecordId() {
         return recordId;
     }
+
     public String getVehicleId() {
         return vehicleId;
     }
@@ -65,10 +73,6 @@ public class MaintenanceRecord {
                 '}';
     }
 
-    public String getMaintenanceId() {
-        return "";
-    }
-
     public static class Builder {
 
         private String recordId;
@@ -82,18 +86,22 @@ public class MaintenanceRecord {
             this.recordId = recordId;
             return this;
         }
+
         public Builder setVehicleId(String vehicleId) {
             this.vehicleId = vehicleId;
             return this;
         }
+
         public Builder setDate(LocalDate date) {
             this.date = date;
             return this;
         }
+
         public Builder setDescription(String description) {
             this.description = description;
             return this;
         }
+
         public Builder setCost(double cost) {
             this.cost = cost;
             return this;
@@ -116,10 +124,6 @@ public class MaintenanceRecord {
 
         public MaintenanceRecord build() {
             return new MaintenanceRecord(this);
-        }
-
-        public Payment.Builder setType(String majorService) {
-            return null;
         }
     }
 }

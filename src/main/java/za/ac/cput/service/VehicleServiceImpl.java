@@ -1,6 +1,7 @@
 package za.ac.cput.service;
 
 import org.springframework.stereotype.Service;
+import za.ac.cput.domain.MaintenanceRecord;
 import za.ac.cput.domain.Vehicle;
 import za.ac.cput.repository.VehicleRepository;
 
@@ -32,7 +33,7 @@ public class VehicleServiceImpl implements VehicleService {
     }
 
     @Override
-    public Vehicle update(Vehicle vehicle) {
+    public Vehicle update(MaintenanceRecord vehicle) {
         return repository.save(vehicle);
     }
 

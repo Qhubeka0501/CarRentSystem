@@ -1,8 +1,9 @@
 package za.ac.cput.factory;
 
-/* Class Name: Review.java
- *Description: Review CarRentSystem Class
- * Author: Alphonsine Ningabiye(230426581)
+/*
+ * Class Name: MaintenanceRecordFactory.java
+ * Description: Factory for creating MaintenanceRecord objects
+ * Author: Alphonsine Ningabiye (230426581)
  * Date: 28 June 2026
  */
 
@@ -33,9 +34,5 @@ public class MaintenanceRecordFactory {
 
     private static String generateRecordId() {
         return "MR" + System.currentTimeMillis();
-    }
-
-    public static MaintenanceRecord createMaintenanceRecord(String m001, String oilChange, String date, double v) {
-        return null;
     }
 }

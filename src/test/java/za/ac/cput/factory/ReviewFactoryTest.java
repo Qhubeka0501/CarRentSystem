@@ -1,21 +1,15 @@
 package za.ac.cput.factory;
 
-/* Class Name: Review.java
- *Description: Review CarRentSystem Class
- * Author: Alphonsine Ningabiye(230426581)
- * Date: 21 June 2026
- */
+import org.junit.jupiter.api.Test;
+import za.ac.cput.domain.Review;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-/* Class Name: Review.java
- *Description: Review CarRentSystem Class
- * Author: Alphonsine Ningabiye(230426581)
- * Date: 28 June 2026
+/*
+ * Class Name: ReviewFactoryTest
+ * Description: Test for ReviewFactory
+ * Author: Alphonsine Ningabiye (230426581)
  */
-
-import org.junit.jupiter.api.Test;
-import za.ac.cput.domain.Review;
 
 class ReviewFactoryTest {
 
@@ -23,14 +17,16 @@ class ReviewFactoryTest {
     void createReview() {
 
         Review review = ReviewFactory.createReview(
-                "C01",
+                "C001",
                 "Excellent service",
-                "Excellent service", 4
+                5
         );
 
         assertNotNull(review);
         assertNotNull(review.getReviewId());
 
-        System.out.println(review);
+        assertEquals("C001", review.getCustomerId());
+        assertEquals("Excellent service", review.getComments());
+        assertEquals(5, review.getRating());
     }
 }

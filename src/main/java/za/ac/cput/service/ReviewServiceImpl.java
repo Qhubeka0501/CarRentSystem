@@ -6,12 +6,6 @@ import za.ac.cput.repository.ReviewRepository;
 
 import java.util.List;
 
-/*
- * Class Name: ReviewServiceImpl
- * Description: ReviewService implementation for CarRentSystem
- * Author: Lucky July Twala (231242840)
- * Date: 12 July 2026
- */
 @Service
 public class ReviewServiceImpl implements ReviewService {
 
